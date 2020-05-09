@@ -48,8 +48,7 @@ final class ImageStore {
         let sizedImage = images.values[index][size]
             ?? _sizeImage(images.values[index][ImageStore.originalSize]!, to: size * ImageStore.scale)
         images.values[index][size] = sizedImage
-        
-        return Image(sizedImage, scale: Length(ImageStore.scale), label: Text(verbatim: name))
+        return Image(sizedImage, scale: CGFloat(ImageStore.scale), label: Text(verbatim: name))
     }
     
     fileprivate func _guaranteeInitialImage(name: String) -> _ImageDictionary.Index {
@@ -91,3 +90,9 @@ final class ImageStore {
     }
 }
 
+
+struct Data_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}
